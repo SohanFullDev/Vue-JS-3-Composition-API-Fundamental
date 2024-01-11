@@ -1,5 +1,5 @@
 <script>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 
   export default {
      setup(){
@@ -7,14 +7,27 @@ import { ref } from 'vue'
 
       const quantity = ref(1)
 
+      const item = reactive({
+        name: "Product 1",
+        price: 10
+
+      })
       const increment = () => quantity.value++
       const decrement = () => quantity.value--
+
+      const swapProduct = () => {
+        item.name = "Product A"
+        item.price = 30
+
+      }
 
       return {
         message,
         quantity,
         increment,
-        decrement
+        decrement,
+        item,
+        swapProduct
 
       }
 
@@ -24,8 +37,9 @@ import { ref } from 'vue'
 </script>
 
 <template>
-   <h1>{{message}}</h1>
-   <input type="text" v-model="message">
+   <h1>{{ item.name }} : {{item.price}}</h1>
+   <!-- <input type="text" v-model="message"> -->
+   <button @click="swapProduct">Swap Product</button>
    <h2>{{ quantity }}</h2>
    <button @click="increment">+</button> 
    <button @click="decrement">-</button>
