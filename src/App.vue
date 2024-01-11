@@ -1,11 +1,21 @@
 <script>
+import { ref } from 'vue'
 
   export default {
      setup(){
-      const message = "Hello Sohan!"
+      const message = ref("Hello Sohan!")
+
+      const quantity = ref(1)
+
+      const increment = () => quantity.value++
+      const decrement = () => quantity.value--
 
       return {
-        message
+        message,
+        quantity,
+        increment,
+        decrement
+
       }
 
      }
@@ -15,6 +25,10 @@
 
 <template>
    <h1>{{message}}</h1>
+   <input type="text" v-model="message">
+   <h2>{{ quantity }}</h2>
+   <button @click="increment">+</button> 
+   <button @click="decrement">-</button>
 
 </template>
 
