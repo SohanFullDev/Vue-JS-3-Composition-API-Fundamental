@@ -1,5 +1,5 @@
 <script>
-import { ref, reactive } from 'vue'
+import { ref, reactive, toRef } from 'vue'
 
   export default {
      setup(){
@@ -20,6 +20,15 @@ import { ref, reactive } from 'vue'
         item.price = 30
 
       }
+
+      const nameRef = toRef(item, 'name');
+      
+      console.log('nameRef:', nameRef.value);
+
+      item.name = "New Product"
+
+      console.log('nameRef:', nameRef.value);
+      
 
       return {
         message,
