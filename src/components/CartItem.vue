@@ -9,14 +9,14 @@ export default {
     }
   },
   setup(props) {
-    console.log(props.cartItem)
-    //const item = reactive(props.cartItem)
-    const item = reactive({
+  //console.log(props.cartItem)
+    const item = reactive(props.cartItem)
+   /* const item = reactive({
         name : "Product 1",
         price: 10,
         quantity: 1
 
-    });
+    });*/
 
     const increment = () => item.quantity++
     const decrement = () => item.quantity--
