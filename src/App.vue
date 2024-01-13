@@ -1,5 +1,5 @@
 <script>
-import { computed, ref, reactive, toRef, toRefs, watch } from 'vue'
+import { computed, ref, reactive, toRef, toRefs, watch, watchEffect } from 'vue'
 
   export default {
 
@@ -32,6 +32,11 @@ import { computed, ref, reactive, toRef, toRefs, watch } from 'vue'
        }
 
       },{immediate: true})
+
+      watchEffect(() => {
+        console.log('Price changed: ', item.price )
+
+      })
 
       return {
       
