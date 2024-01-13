@@ -4,10 +4,7 @@ import { computed, ref, reactive, toRef, toRefs, watch } from 'vue'
   export default {
 
      setup(){
-      //const message = ref("Hello Sohan!")
-
-     // const quantity = ref(1)
-
+    
       const item = reactive({
         name: "Product 1",
         price: 10,
@@ -26,31 +23,10 @@ import { computed, ref, reactive, toRef, toRefs, watch } from 'vue'
       const total = computed(() => item.price * item.quantity)
 
 
-    /*  const nameRef = toRef(item, 'name');
-      
-      console.log('nameRef:', nameRef.value);
-
-      item.name = "New Product"
-
-      console.log('nameRef:', nameRef.value);*/
-
-      //const itemRefs = toRefs(item)
       const {name, price, quantity } = toRefs(item)
 
-     /* console.log('name:', itemRefs.name.value)
-      console.log('price', itemRefs.price.value)
-
-      item.name = "Hot Product"
-      item.price = 50
-
-      console.log('name:', itemRefs.name.value)
-      console.log('price', itemRefs.price.value)*/
-
-      watch(() => item.quantity,()=> {
-        /*
-          console.log('newValue', newValue)
-        console.log('oldValue', oldValue)
-        */
+     watch(() => item.quantity,()=> {
+      
        if(item.quantity == 5){
          alert("You cannot add more item");
        }
@@ -58,11 +34,11 @@ import { computed, ref, reactive, toRef, toRefs, watch } from 'vue'
       },{immediate: true})
 
       return {
-       // message,
+      
         quantity,
         increment,
         decrement,
-       // item,
+     
         name,
         price,
         total,
@@ -76,9 +52,9 @@ import { computed, ref, reactive, toRef, toRefs, watch } from 'vue'
 </script>
 
 <template>
-  <!--  <h1>{{ item.name }} : {{item.price}}</h1> -->
+  
   <h1>{{  name }} : {{ price}}</h1>
-   <!-- <input type="text" v-model="message"> -->
+
    <button @click="swapProduct">Swap Product</button>
   <button @click="price++">increment Price</button>
 
