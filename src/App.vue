@@ -29,23 +29,26 @@ import { ref, reactive, toRef, toRefs } from 'vue'
 
       console.log('nameRef:', nameRef.value);*/
 
-      const itemRefs = toRefs(item)
+      //const itemRefs = toRefs(item)
+      const {name, price} = toRefs(item)
 
-      console.log('name:', itemRefs.name.value)
+     /* console.log('name:', itemRefs.name.value)
       console.log('price', itemRefs.price.value)
 
       item.name = "Hot Product"
       item.price = 50
 
       console.log('name:', itemRefs.name.value)
-      console.log('price', itemRefs.price.value)
+      console.log('price', itemRefs.price.value)*/
 
       return {
         message,
         quantity,
         increment,
         decrement,
-        item,
+       // item,
+        name,
+        price,
         swapProduct
 
       }
@@ -56,7 +59,8 @@ import { ref, reactive, toRef, toRefs } from 'vue'
 </script>
 
 <template>
-   <h1>{{ item.name }} : {{item.price}}</h1>
+  <!--  <h1>{{ item.name }} : {{item.price}}</h1> -->
+  <h1>{{  name }} : {{ price}}</h1>
    <!-- <input type="text" v-model="message"> -->
    <button @click="swapProduct">Swap Product</button>
    <h2>{{ quantity }}</h2>
