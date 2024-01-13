@@ -8,7 +8,8 @@ export default {
       required: true
     }
   },
-  setup(props) {
+  emits: ['remove'],
+  setup(props, {emit}) {
   //console.log(props.cartItem)
     const item = reactive(props.cartItem)
    /* const item = reactive({
@@ -25,7 +26,7 @@ export default {
 
     const { name, price, quantity } = toRefs(item)
 
-    const remove = () => alert("Remove")
+    const remove = () => emit('remove', item)
 
     return {
       remove,
