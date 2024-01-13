@@ -1,5 +1,5 @@
 <script>
-import { computed, ref, reactive, toRef, toRefs } from 'vue'
+import { computed, ref, reactive, toRef, toRefs, watch } from 'vue'
 
   export default {
 
@@ -45,6 +45,12 @@ import { computed, ref, reactive, toRef, toRefs } from 'vue'
 
       console.log('name:', itemRefs.name.value)
       console.log('price', itemRefs.price.value)*/
+
+      watch(total,(newValue, oldValue)=> {
+        console.log('newValue', newValue)
+        console.log('oldValue', oldValue)
+
+      })
 
       return {
        // message,
