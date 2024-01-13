@@ -1,24 +1,19 @@
-<script>
+<script setup>
 import { computed, reactive, toRefs, onMounted, onUpdated, onUnmounted } from 'vue'
 
-export default {
-  props: {
+const props = defineProps({
     cartItem: {
-      type: Object,
-      required: true
+        type: Object,
+        required: true
     }
-  },
-  emits: ['remove'],
-  setup(props, {emit}) {
-  //console.log(props.cartItem)
+
+})
+
+const emit = defineEmits(['remove'])
+
+
     const item = reactive(props.cartItem)
-   /* const item = reactive({
-        name : "Product 1",
-        price: 10,
-        quantity: 1
-
-    });*/
-
+ 
     const increment = () => item.quantity++
     const decrement = () => item.quantity--
 
@@ -28,31 +23,7 @@ export default {
 
     const remove = () => emit('remove', item)
 
-    onMounted(() => {
-        console.log('Component mounted');
-
-    })
-    onUpdated(()=> {
-        console.log('Component updated')
-
-    });
-
-    onUnmounted(()=>{
-        console.log('Component unmounted.');
-
-    });
-
-    return {
-      remove,
-      quantity,
-      increment,
-      decrement,
-      name,
-      price,
-      total
-    }
-  }
-}
+ 
 </script>
 
 <template>
