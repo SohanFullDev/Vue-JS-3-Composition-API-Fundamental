@@ -25,7 +25,10 @@ export default {
 
     const { name, price, quantity } = toRefs(item)
 
+    const remove = () => alert("Remove")
+
     return {
+      remove,
       quantity,
       increment,
       decrement,
@@ -42,6 +45,8 @@ export default {
     <h1>{{ name }} : {{ price }}: {{ quantity }}</h1>
     <button @click="increment">+</button>
     <button @click="decrement">-</button>
+    <br>
+    <button @click="remove">Remove</button>
     <h3>Total: {{ total }}</h3>
   </div>
 </template>
