@@ -1,7 +1,8 @@
 <script>
-import { ref, reactive, toRef, toRefs } from 'vue'
+import { computed, ref, reactive, toRef, toRefs } from 'vue'
 
   export default {
+
      setup(){
       const message = ref("Hello Sohan!")
 
@@ -20,6 +21,9 @@ import { ref, reactive, toRef, toRefs } from 'vue'
         item.price = 30
 
       }
+
+      const total = computed(() => item.price * quantity.value)
+
 
     /*  const nameRef = toRef(item, 'name');
       
@@ -49,6 +53,7 @@ import { ref, reactive, toRef, toRefs } from 'vue'
        // item,
         name,
         price,
+        total,
         swapProduct
 
       }
@@ -63,9 +68,13 @@ import { ref, reactive, toRef, toRefs } from 'vue'
   <h1>{{  name }} : {{ price}}</h1>
    <!-- <input type="text" v-model="message"> -->
    <button @click="swapProduct">Swap Product</button>
+  <button @click="price++">increment Price</button>
+
    <h2>{{ quantity }}</h2>
    <button @click="increment">+</button> 
    <button @click="decrement">-</button>
+
+   <h3>Total: {{ total }}</h3>
 
 </template>
 
