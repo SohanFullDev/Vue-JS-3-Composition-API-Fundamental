@@ -1,12 +1,8 @@
-<script>
-import { ref } from 'vue';
+<script setup>
 import CartItem from './components/CartItem.vue';
 import useCart from './useCart';
 
-export default {
-  components: { CartItem },
-  setup() {
-   const {items, addItem, removeItem } = useCart()
+const {items, addItem, removeItem } = useCart()
 
    addItem({
     id: 1,
@@ -15,12 +11,7 @@ export default {
     quantity: 1
 
    })
- 
 
-
-    return { items, removeItem };
-  }
-}
 </script>
 
 <template>
