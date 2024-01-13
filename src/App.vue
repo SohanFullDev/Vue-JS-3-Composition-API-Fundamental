@@ -46,11 +46,16 @@ import { computed, ref, reactive, toRef, toRefs, watch } from 'vue'
       console.log('name:', itemRefs.name.value)
       console.log('price', itemRefs.price.value)*/
 
-      watch(total,(newValue, oldValue)=> {
-        console.log('newValue', newValue)
+      watch(() => item.quantity,()=> {
+        /*
+          console.log('newValue', newValue)
         console.log('oldValue', oldValue)
+        */
+       if(item.quantity == 5){
+         alert("You cannot add more item");
+       }
 
-      })
+      },{immediate: true})
 
       return {
        // message,
