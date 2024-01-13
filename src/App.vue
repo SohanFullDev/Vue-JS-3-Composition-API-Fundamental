@@ -4,17 +4,18 @@ import { computed, ref, reactive, toRef, toRefs } from 'vue'
   export default {
 
      setup(){
-      const message = ref("Hello Sohan!")
+      //const message = ref("Hello Sohan!")
 
-      const quantity = ref(1)
+     // const quantity = ref(1)
 
       const item = reactive({
         name: "Product 1",
-        price: 10
+        price: 10,
+        quantity:1
 
       })
-      const increment = () => quantity.value++
-      const decrement = () => quantity.value--
+      const increment = () => item.quantity++
+      const decrement = () => item.quantity--
 
       const swapProduct = () => {
         item.name = "Product A"
@@ -22,7 +23,7 @@ import { computed, ref, reactive, toRef, toRefs } from 'vue'
 
       }
 
-      const total = computed(() => item.price * quantity.value)
+      const total = computed(() => item.price * item.quantity)
 
 
     /*  const nameRef = toRef(item, 'name');
@@ -34,7 +35,7 @@ import { computed, ref, reactive, toRef, toRefs } from 'vue'
       console.log('nameRef:', nameRef.value);*/
 
       //const itemRefs = toRefs(item)
-      const {name, price} = toRefs(item)
+      const {name, price, quantity } = toRefs(item)
 
      /* console.log('name:', itemRefs.name.value)
       console.log('price', itemRefs.price.value)
@@ -46,7 +47,7 @@ import { computed, ref, reactive, toRef, toRefs } from 'vue'
       console.log('price', itemRefs.price.value)*/
 
       return {
-        message,
+       // message,
         quantity,
         increment,
         decrement,
